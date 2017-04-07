@@ -11,9 +11,9 @@ class Solution
 {
 public:
 	void lowestCommonAncestor(TreeNode* node,
-							  TreeNode* nodeParent,
-							  TreeNode* &p,
-							  TreeNode* &q)
+				 TreeNode* nodeParent,
+				 TreeNode* &p,
+				 TreeNode* &q)
 	{
 	    if (node)
 		{
