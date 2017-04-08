@@ -8,9 +8,11 @@
  */
 class Solution {
 public:
+    // this function is just for showing graph
     void showGraph(UndirectedGraphNode *root)
     {
-        if (!root) {
+        if (!root) 
+        {
             return;
         }
 
