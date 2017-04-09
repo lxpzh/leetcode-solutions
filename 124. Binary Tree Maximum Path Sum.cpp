@@ -11,20 +11,15 @@ class Solution {
 public:
     int maxPathSumImpl(TreeNode* root, int& value) {
         if (root) {
-            int leftVal = maxPathSumImpl(root->left, value);
-            int rightVal = maxPathSumImpl(root->right, value);
-            
-            int maxVal = max(max(root->val, root->val + leftVal), root->val + rightVal);
-            int tempMax = max(max(root->val + rightVal + leftVal, rightVal), leftVal);
-            
-            if (maxVal < tempMax && value < tempMax) {
-                value = tempMax;
-            }
-            
-            return maxVal;
-        } else {
-            return -1234567;
-        }
+            int leftVal = max(0, maxPathSumImpl(root->left, value));
+            int rightVal = max(0, maxPathSumImpl(root->right, value));
+        
+            value = max(root->val + leftVal + rightVal, value);
+          
+            return max(leftVal, rightVal) + root->val;
+        }  else {
+            return 0;
+        }  
     }
     
     int maxPathSum(TreeNode* root) {
